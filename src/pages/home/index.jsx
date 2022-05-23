@@ -8,7 +8,8 @@ import './style.css';
 const Home = () => {
   const style = {
     header: 'header',
-    container: 'max-w-[1160px] w-full mx-auto block px-5 pt-5 pb-20',
+    container:
+      'max-w-[1160px] w-full mx-auto block px-5 pt-5 pb-[291px] flex flex-col md:pb-[330px] lg:pb-[393px]',
     headerContainer: 'flex items-center justify-between',
     navbar: 'flex items-center justify-between w-full',
     navbarHamburgerButton:
@@ -32,7 +33,15 @@ const Home = () => {
       'hidden md:flex w-full h-[19px] ml-[22px] cursor-pointer bg-transparent font-Raleway font-light border-none text-base leading-[19px] text-white',
     selectMoney:
       'hidden md:flex w-full h-[19px] ml-[22px] cursor-pointer bg-transparent font-Raleway font-light border-none text-base leading-[19px] text-white',
-    langmon: 'flex mr-5 lg:mr-[75px]'
+    langmon: 'flex mr-5 lg:mr-[75px]',
+    intro: 'self-center mt-[246px]',
+    introContainer: 'flex flex-col items-center justify-center',
+    introHeader:
+      'font-Raleway text-white text-[32px] text-center leading-[38px] opacity-[0.85] font-normal',
+    divider: 'w-[120px] h-[1px] bg-white mt-[15px] block text-center',
+    promotion:
+      'link font-Raleway text-white text-sm leading-4 uppercase mt-4 flex active:animate-pulse',
+    arrow: 'ml-[5px] hover:fill-[#E0BEA2]'
   };
   return (
     <div className={style.header}>
@@ -119,6 +128,28 @@ const Home = () => {
                 </button>
               </div>
             </div>
+          </div>
+        </div>
+        <div className={style.intro}>
+          <div className={style.introContainer}>
+            <h1 className={style.introHeader}>Новая коллекция</h1>
+            <span className={style.divider}></span>
+            <Link className={style.promotion} to={'/catalog'}>
+              <span>Смотреть Новинки</span>{' '}
+              <svg
+                className={style.arrow}
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  className={style.arrow}
+                  d="M7.88906 7L4 3.11094L5.11094 2L10.1109 7L5.11094 12L4 10.8891L7.88906 7Z"
+                  fill="white"
+                />
+              </svg>
+            </Link>
           </div>
         </div>
       </div>

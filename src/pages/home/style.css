@@ -5,13 +5,13 @@
 }
 @media screen and (min-width: 768px) {
   .header {
-    background-image: url('../../../public/assets/header/yankibg.png'),
-    url('../../../public/assets/header/yankibg2.png'),
-    url('../../../public/assets/header/yankibg3.png'),
-    linear-gradient(180deg, rgba(61, 61, 61, 0.5) 0%, rgba(61, 61, 61, 0) 100%);
-    background-position: left, center, right;
-    background-size:33.4% 900px;
+    background-image: url('../../../public/assets/header/yankibg2.png'); 
+    background-position:50% 0;  
+    background-size:cover;
     background-repeat: no-repeat;
   }
 }
-  
+
+.link:hover svg path{
+  fill: #E0BEA2;
+}
