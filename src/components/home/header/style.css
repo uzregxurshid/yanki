@@ -1,11 +1,11 @@
 .header {
-  background-image: url('../../../public/assets/header/yankibg.png');
+  background-image: url('../../../../public/assets/header/yankibg.png');
   background-size: cover;
   background-repeat: no-repeat;
 }
 @media screen and (min-width: 768px) {
   .header {
-    background-image: url('../../../public/assets/header/yankibg2.png'); 
+    background-image: url('../../../../public/assets/header/yankibg2.png'); 
     background-position:50% 0;  
     background-size:cover;
     background-repeat: no-repeat;
