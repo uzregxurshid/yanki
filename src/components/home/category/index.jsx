@@ -5,7 +5,9 @@ import CategoryImage3 from '../../../assets/images/category/categoryth.png';
 import CategoryImage4 from '../../../assets/images/category/categoryfo.png';
 
 import Card from '../card/index';
+import { useNavigate } from 'react-router-dom';
 const Category = () => {
+  const navigate = useNavigate();
   const style = {
     category: `category`,
     container: 'lg:py-[100px] max-w-[1160px] w-full mx-auto block px-5 py-10 flex flex-col',
@@ -18,7 +20,7 @@ const Category = () => {
     itemlg: 'hidden lg:flex',
     item: 'flex',
     nexter: 'flex relative justify-center items-center z-10',
-    next: 'active:bg-[#CCA88A] active:animate-pulse z-20 transition ease-in-out duration-500 hover:bg-[#E0BEA2] w-[30px] h-[30px] bg-[#E0BEA2] absolute flex justify-center items-center right-2 top-y-1/2 transform-center'
+    next: 'lg:w-10 lg:h-10 sm:right-5 active:bg-[#CCA88A] active:animate-pulse z-20 transition ease-in-out duration-500 hover:bg-[#E0BEA2] w-[30px] h-[30px] bg-[#E0BEA2] absolute flex justify-center items-center right-2 top-y-1/2 transform-center'
   };
   return (
     <div className={style.category}>
@@ -60,7 +62,8 @@ const Category = () => {
                   type="button"
                   aria-label="Перейти к странице Категория"
                   className={style.next}
-                  aria-hidden="true">
+                  aria-hidden="true"
+                  onClick={() => navigate('/category')}>
                   <img className={style.nextImage} src={NextImage} alt="Next button" />
                 </button>
               </li>
