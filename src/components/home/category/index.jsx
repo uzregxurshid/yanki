@@ -10,13 +10,15 @@ const Category = () => {
     category: `category`,
     container: 'lg:py-[100px] max-w-[1160px] w-full mx-auto block px-5 py-10 flex flex-col',
     categoryContainer: 'flex flex-col',
-    categoryHeader: 'font-Raleway font-light text-2xl leading-7 text-[#252525]',
+    categoryHeader:
+      'md:text-[30px] lg:text-[36px] leading-[42px] font-Raleway font-light text-2xl leading-7 text-[#252525]',
     listWrapper: 'lg:mt-[50px] mt-[30px] md:mt-[40px] lg:mt-[50px]',
-    next: 'hidden',
-    list: 'flex justify-center',
+    list: 'flex justify-center relative',
     itemsm: 'hidden sm:flex',
     itemlg: 'hidden lg:flex',
-    item: 'flex'
+    item: 'flex',
+    nexter: 'flex relative justify-center items-center z-10',
+    next: 'active:bg-[#CCA88A] active:animate-pulse z-20 transition ease-in-out duration-500 hover:bg-[#E0BEA2] w-[30px] h-[30px] bg-[#E0BEA2] absolute flex justify-center items-center right-2 top-y-1/2 transform-center'
   };
   return (
     <div className={style.category}>
@@ -30,33 +32,39 @@ const Category = () => {
                 backgroundSize="cover"
                 backgroundPosition="center"
                 categoryText="Куртки"
+                to={'/category'}
                 cardClassName={style.item}></Card>
               <Card
                 image={CategoryImage2}
                 backgroundSize="cover"
                 backgroundPosition="center"
                 categoryText="Пальто"
+                to={'/category'}
                 cardClassName={style.item}></Card>
               <Card
                 image={CategoryImage3}
                 backgroundSize="cover"
                 backgroundPosition="center"
+                to={'/category'}
                 categoryText="Шубы"
                 cardClassName={style.itemsm}></Card>
               <Card
                 image={CategoryImage4}
                 backgroundSize="cover"
                 backgroundPosition="center"
+                to={'/category'}
                 categoryText="Парки"
                 cardClassName={style.itemlg}></Card>
+              <li className={style.nexter}>
+                <button
+                  type="button"
+                  aria-label="Перейти к странице Категория"
+                  className={style.next}
+                  aria-hidden="true">
+                  <img className={style.nextImage} src={NextImage} alt="Next button" />
+                </button>
+              </li>
             </ul>
-            <button
-              type="button"
-              aria-label="Перейти к странице Категория"
-              className={style.next}
-              aria-hidden="true">
-              <img className={style.nextImage} src={NextImage} alt="Next button" />
-            </button>
           </div>
         </div>
       </div>

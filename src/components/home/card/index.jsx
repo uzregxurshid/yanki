@@ -1,8 +1,7 @@
 /* eslint-disable react/prop-types */
 // eslint-disable-next-line no-unused-vars
-import { css, jsx } from '@emotion/react';
 import styled from '@emotion/styled';
-import './style.css';
+import { useNavigate } from 'react-router-dom';
 const CardBody = styled('li')`
   background-image: url(${(props) => props.image});
   width: 165px;
@@ -13,6 +12,7 @@ const CardBody = styled('li')`
   align-items: flex-end;
   margin-left: 2.5px;
   margin-right: 2.5px;
+  cursor: pointer;
   @media (min-width: 425px) {
     width: 185px;
     height: 256px;
@@ -71,13 +71,15 @@ const CardCategory = styled('div')`
   }
 `;
 
-const Card = ({ image, backgroundSize, backgroundPosition, categoryText, cardClassName }) => {
+const Card = ({ image, backgroundSize, backgroundPosition, categoryText, cardClassName, to }) => {
+  const navigate = useNavigate();
   return (
     <CardBody
       image={image}
       backgroundSize={backgroundSize}
       backgroundPosition={backgroundPosition}
-      className={cardClassName}>
+      className={cardClassName}
+      onClick={() => navigate(to)}>
       <CardCategory>{categoryText}</CardCategory>
     </CardBody>
   );
