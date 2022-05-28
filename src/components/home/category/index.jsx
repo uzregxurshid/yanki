@@ -10,7 +10,8 @@ const Category = () => {
   const navigate = useNavigate();
   const style = {
     category: `category`,
-    container: 'lg:py-[100px] max-w-[1160px] w-full mx-auto block px-5 py-10 flex flex-col',
+    container:
+      'lg:py-[100px] max-w-[1160px] w-full mx-auto block px-5 py-10 flex flex-col md:py-[80px]',
     categoryContainer: 'flex flex-col',
     categoryHeader:
       'md:text-[30px] lg:text-[36px] leading-[42px] font-Raleway font-light text-2xl leading-7 text-[#252525]',
