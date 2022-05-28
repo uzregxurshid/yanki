@@ -5,20 +5,101 @@ const Footer = () => {
   const style = {
     footer: 'footer',
     container: 'max-w-[1160px] w-full mx-auto block px-5 flex flex-col pb-[17px]',
-    footerContainer: 'flex flex-col items-center justify-center',
+    footerContainer: 'md:flex-row md:items-start flex flex-col items-center justify-center',
     accordionButton: `accordion-button collapsed relative flex  items-center w-full pb-[5px] bg-white border-0 rounded-none transition focus:outline-none
       font-Raleway text-[18px] leading-[21px] font-light mt-5 focus:text-black justify-between flex-col
       after:invert-[.92] after:sepia-[.12] after:saturate-[1192] after:hue-rotate-[317deg] after:brightness-[.89] after:contrast-[.96] 
       `,
     coltext:
       'mb-[-20px] text-[#252525] active:text-[#252525] focus:text-[#252525] hover:text-[#000]',
-    contactx: 'mt-5'
+    contactx:
+      'md:mt-[0] mt-5  md:w-3/12  md:flex md:flex-col  md:justify-start md:items-start md:ml-[calc(33.3%-170px)]'
   };
   return (
     <div className={style.footer}>
       <div className={style.container}>
         <div className={style.footerContainer}>
-          <div className="accordion w-full" id="accordion">
+          <ul className="md:flex hidden w-9/12 justify-between">
+            <li className="flex flex-col">
+              <h3 className="text-[20px] leading-[23px] not-italic font-light font-Raleway">
+                КОМПАНИЯ
+              </h3>
+              <ul className="flex flex-col mt-5">
+                <li>
+                  <a
+                    className="text-[16px] leading-[19px] font-extralight font-Raleway text-[#252525]"
+                    href="#">
+                    О нас
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="text-[16px] leading-[19px] font-extralight font-Raleway text-[#252525]"
+                    href="#">
+                    Контакты
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li className="flex flex-col">
+              <h3 className="text-[20px] leading-[23px] not-italic font-light font-Raleway">
+                ПОЛЕЗНОЕ
+              </h3>
+              <ul className="flex flex-col mt-5">
+                <li>
+                  <a
+                    className="text-[16px] leading-[19px] font-extralight font-Raleway text-[#252525]"
+                    href="#">
+                    О нас
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="text-[16px] leading-[19px] font-extralight font-Raleway text-[#252525]"
+                    href="#">
+                    Контакты
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="text-[16px] leading-[19px] font-extralight font-Raleway text-[#252525]"
+                    href="#">
+                    Контакты
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li className="flex flex-col">
+              <h3 className="text-[20px] leading-[23px] not-italic font-light font-Raleway">
+                ПОКУПАТЕЛЮ
+              </h3>
+              <ul className="flex flex-col mt-5">
+                <li>
+                  <a
+                    className="text-[16px] leading-[19px] font-extralight font-Raleway text-[#252525]"
+                    href="#">
+                    О нас
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="text-[16px] leading-[19px] font-extralight font-Raleway text-[#252525]"
+                    href="#">
+                    Контакты
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="text-[16px] leading-[19px] font-extralight font-Raleway text-[#252525]"
+                    href="#">
+                    Контакты
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+          <div className="md:hidden accordion w-full" id="accordion">
             <div className="accordion-item bg-white border-b border-gray-200">
               <h2 className="accordion-header mb-0" id="headingOne">
                 <button
@@ -131,7 +212,9 @@ const Footer = () => {
             </div>
           </div>
           <div className={style.contactx}>
-            <h3 className="font-Raleway text-[18px] leading-[21px] font-light text-[#252525] text-center">
+            <h3
+              className="font-Raleway text-[18px] leading-[21px] font-light text-[#252525] text-center
+                md:text-[20px] md:leading-[23px] md:not-italic">
               КОНТАКТЫ
             </h3>
             <ul className="flex mt-[10px] justify-center">
@@ -163,7 +246,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="font-Raleway text-[10px] leading-3 text-center text-[#252525] mt-[30px]">
+          <div className="font-Raleway text-[10px] leading-3 text-center text-[#252525] mt-[30px] md:hidden">
             ©️ 2021 Yanki. All rights reserved
           </div>
         </div>
