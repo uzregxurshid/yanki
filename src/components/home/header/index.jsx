@@ -3,6 +3,11 @@ import Favorites from '../../../assets/images/header/favorit.svg';
 import Cart from '../../../assets/images/header/cart.svg';
 import Profile from '../../../assets/images/header/profile.svg';
 import Search from '../../../assets/images/header/search.svg';
+import Searching from '../../../assets/images/header/searchingblack.svg';
+import ProfilePic from '../../../assets/images/header/human.svg';
+import Instagram from '../../../assets/images/footer/instagram.min.svg';
+import Telegram from '../../../assets/images/footer/telegram.svg';
+
 import { Link } from 'react-router-dom';
 import './style.css';
 const Header = () => {
@@ -10,7 +15,7 @@ const Header = () => {
     header: 'header',
     container:
       'max-w-[1160px] w-full mx-auto block px-5 pt-5 pb-[291px] flex flex-col md:pb-[330px] lg:pb-[393px]',
-    headerContainer: 'flex items-center justify-between',
+    headerContainer: 'flex items-center justify-between relative',
     navbar: 'flex items-center justify-between w-full',
     navbarHamburgerButton:
       'w-[34px] h-[24px] cursor-pointer flex flex-col hover:animate-pulse active:animate-ping',
@@ -47,6 +52,111 @@ const Header = () => {
     <div className={style.header}>
       <div className={style.container}>
         <div className={style.headerContainer}>
+          <div className="absolute flex flex-col items-center w-screen h-screen bg-white left-[-24px] top-10 invisible">
+            <ul className="flex flex-col">
+              <li className="pb-5 border-b-[0.3px] border-solid border-[#252525]  pt-5">
+                <div className="flex">
+                  <div className="flex relative">
+                    <input
+                      className="w-[261px] rounded-full pl-5 py-2.5 border-[0.3px] border-[#252525] outline-none"
+                      type="search"
+                      name="search"
+                      id="search"
+                      placeholder="Введите ваш запрос"
+                    />
+                    <img
+                      className="absolute right-3 top-3 cursor-pointer"
+                      src={Searching}
+                      alt="SearchIcon"
+                    />
+                  </div>
+                  <select
+                    className="ml-5 border-none bg-white cursor-pointer"
+                    name="money"
+                    id="money">
+                    <option value="uah">UAH</option>
+                    <option value="rub">RUB</option>
+                    <option value="USD">USD</option>
+                  </select>
+                </div>
+              </li>
+              <li className="py-5 border-b-[0.3px] border-solid border-[#252525]">
+                <a className="flex items-center justify-center" href="#">
+                  <img src={ProfilePic} alt="human" />
+                  <span className=" font-Raleway not-italic uppercase text-base leading-5 text-[#252525] ml-[5px]">
+                    ЛИЧНЫЙ КАБИНЕТ
+                  </span>
+                </a>
+              </li>
+              <li className="py-5 border-b-[0.3px] border-solid border-[#252525]">
+                <a className="flex items-center justify-center" href="#">
+                  <span className=" font-Raleway not-italic uppercase text-base leading-5 text-[#252525]">
+                    NEW
+                  </span>
+                </a>
+              </li>
+              <li className="py-5 border-b-[0.3px] border-solid border-[#252525]">
+                <a className="flex items-center justify-center" href="#">
+                  <span className=" font-Raleway not-italic uppercase text-base leading-5 text-[#252525]">
+                    КАТАЛОГ
+                  </span>
+                </a>
+              </li>
+              <li className="py-5 border-b-[0.3px] border-solid border-[#252525]">
+                <a className="flex items-center justify-center" href="#">
+                  <span className=" font-Raleway not-italic uppercase text-base leading-5 text-[#252525]">
+                    О НАС
+                  </span>
+                </a>
+              </li>
+              <li className="py-5 border-b-[0.3px] border-solid border-[#252525]">
+                <a className="flex items-center justify-center" href="#">
+                  <span className=" font-Raleway not-italic uppercase text-base leading-5 text-[#252525]">
+                    УСЛОВИЯ ВОЗВРАТА
+                  </span>
+                </a>
+              </li>
+              <li className="py-5 border-b-[0.3px] border-solid border-[#252525]">
+                <a className="flex items-center justify-center" href="#">
+                  <span className=" font-Raleway not-italic uppercase text-base leading-5 text-[#252525]">
+                    КОНТАКТЫ
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <div className="flex flex-col mt-20">
+              <ul className="flex items-center flex-col">
+                <li>
+                  <ul className="flex item-center">
+                    <li>
+                      <a href="#">
+                        <img src={Instagram} alt="Instagram" />
+                      </a>
+                    </li>
+                    <li className="ml-2.5">
+                      <a href="#">
+                        <img src={Telegram} alt="Telegram" />
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li className="mt-[5px]">
+                  <a
+                    className="font-Raleway font-extralight not-italic text-sm leading-4"
+                    href="tel:+38(073) 096 36 44">
+                    +38(073) 096 36 44
+                  </a>
+                </li>
+                <li className="mt-[5px]">
+                  <a
+                    className="font-Raleway font-extralight not-italic text-sm leading-4"
+                    href="mailto:info@yanki.com">
+                    info@yanki.com
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
           <div className={style.navbar}>
             <div className={style.left}>
               <button className={style.navbarHamburgerButton}>
