@@ -9,8 +9,17 @@ import Instagram from '../../../assets/images/footer/instagram.min.svg';
 import Telegram from '../../../assets/images/footer/telegram.svg';
 import { Link } from 'react-router-dom';
 import './style.css';
-import { useRef } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect, useRef } from 'react';
 const Header = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000
+    });
+    AOS.refresh();
+  }, []);
+
   const navbar = useRef();
   const style = {
     header: 'header',
@@ -60,8 +69,8 @@ const Header = () => {
         <div className={style.headerContainer}>
           <div
             ref={navbar}
-            className="absolute flex flex-col items-center w-screen md:pb-0 pb-[30px] bg-white left-[calc(-100vw-20px)] top-10 transition ease-in-out duration-500  overflow-hidden ">
-            <ul className="flex flex-col w-full md:flex-row ">
+            className="absolute md:top-[-25px] z-10 flex flex-col items-center w-screen md:pb-0 pb-[30px] bg-white left-[calc(-100vw-20px)] clg:left-[calc(calc(-100vw-(calc(calc(100vw-1160px)/2)))-20px)] top-10 transition ease-in-out duration-500  overflow-hidden ">
+            <ul className="flex flex-col w-full md:flex-row md:items-center">
               <li className="pb-5 border-b-[0.3px] border-solid border-[#252525]  mt-5 flex justify-center md:hidden">
                 <div className="flex">
                   <div className="flex relative">
@@ -88,9 +97,9 @@ const Header = () => {
                   </select>
                 </div>
               </li>
-              <li className="mt-5 pb-5 border-b-[0.3px] border-solid border-[#252525] md:hidden md:hidden">
+              <li className="mt-5 pb-5 border-b-[0.3px] border-solid border-[#252525] md:hidden">
                 <a
-                  className="flex items-center justify-center hover:opacity-75 transition duration-500 active:opacity-50"
+                  className="flex cursor-pointer items-center justify-center hover:opacity-75 transition duration-500 active:opacity-50"
                   href="#">
                   <img src={ProfilePic} alt="human" />
                   <span className=" font-Raleway not-italic uppercase text-base leading-5 text-[#252525] ml-[5px]">
@@ -100,7 +109,7 @@ const Header = () => {
               </li>
               <li className="mt-5 pb-5 border-b-[0.3px] border-solid border-[#252525] md:hidden">
                 <a
-                  className="flex items-center justify-center hover:opacity-75 transition duration-500 active:opacity-50"
+                  className="cursor-pointer flex items-center justify-center hover:opacity-75 transition duration-500 active:opacity-50"
                   href="#">
                   <span className=" font-Raleway not-italic uppercase text-base leading-5 text-[#252525]">
                     NEW
@@ -108,35 +117,41 @@ const Header = () => {
                 </a>
               </li>
               <li className="mt-5 pb-5 border-b-[0.3px] border-solid border-[#252525] md:hidden">
-                <a className="flex items-center justify-center hover:opacity-75 transition duration-500 active:opacity-50">
+                <a className="cursor-pointer flex items-center justify-center hover:opacity-75 transition duration-500 active:opacity-50">
                   <span className=" font-Raleway not-italic uppercase text-base leading-5 text-[#252525]">
                     КАТАЛОГ
                   </span>
                 </a>
               </li>
               <li className="mt-5 pb-5 border-b-[0.3px] border-solid border-[#252525] md:hidden">
-                <a className="flex items-center justify-center hover:opacity-75 transition duration-500 active:opacity-50">
+                <a className="cursor-pointer flex items-center justify-center hover:opacity-75 transition duration-500 active:opacity-50">
                   <span className=" font-Raleway not-italic uppercase text-base leading-5 text-[#252525]">
                     О НАС
                   </span>
                 </a>
               </li>
-              <li className="ml-[25px] md:mt-[34px] md:pb-[30px] mt-5 pb-5 md:border-b-0 border-b-[0.3px] border-solid border-[#252525]">
-                <a className="flex items-center justify-center hover:opacity-75 transition duration-500 active:opacity-50">
+              <li className="hidden clg:ml-[calc(calc(calc(100vw-1160px)/2)+24px)] md:flex ml-5 md:mt-5 md:pb-5 mt-5 pb-5 md:border-b-0 border-b-[0.3px] border-solid border-[#252525]">
+                <button className="py-3" type="button" onClick={HamburgerOpen}>
+                  <span className="h-1 w-[34px] block bg-[#CCA88A] rotate-[-45deg] translate-x-[-1px] translate-y-[3.5px]"></span>
+                  <span className="h-1 w-[34px] block bg-[#CCA88A] rotate-45"></span>
+                </button>
+              </li>
+              <li className="hidden md:flex lg:ml-[128px] md:ml-10 md:mt-5 md:pb-5 mt-5 pb-5 md:border-b-0 border-b-[0.3px] border-solid border-[#252525]">
+                <a className="cursor-pointer flex items-center justify-center hover:opacity-75 transition duration-500 active:opacity-50">
                   <span className=" font-Raleway not-italic uppercase text-base leading-5 text-[#252525]">
                     ОПЛАТА И ДОСТАВКА
                   </span>
                 </a>
               </li>
-              <li className="ml-[25px] md:mt-[34px] md:pb-[30px] mt-5 pb-5 md:border-b-0 border-b-[0.3px] border-solid border-[#252525]">
-                <a className="flex items-center justify-center hover:opacity-75 transition duration-500 active:opacity-50">
+              <li className="md:ml-3 lg:ml-6 md:mt-5 md:pb-5 mt-5 pb-5 md:border-b-0 border-b-[0.3px] border-solid border-[#252525]">
+                <a className="cursor-pointer flex items-center justify-center hover:opacity-75 transition duration-500 active:opacity-50">
                   <span className=" font-Raleway not-italic uppercase text-base leading-5 text-[#252525]">
                     УСЛОВИЯ ВОЗВРАТА
                   </span>
                 </a>
               </li>
-              <li className="ml-[25px] md:mt-[34px] md:pb-[30px] mt-5 pb-5 md:border-b-0 border-b-[0.3px] border-solid border-[#252525]">
-                <a className="flex items-center justify-center hover:opacity-75 transition duration-500 active:opacity-50">
+              <li className="md:ml-3 lg:ml-6 md:mt-5 md:pb-5 mt-5 pb-5 md:border-b-0 border-b-[0.3px] border-solid border-[#252525]">
+                <a className="cursor-pointer flex items-center justify-center hover:opacity-75 transition duration-500 active:opacity-50">
                   <span className=" font-Raleway not-italic uppercase text-base leading-5 text-[#252525]">
                     КОНТАКТЫ
                   </span>
@@ -259,7 +274,7 @@ const Header = () => {
             </div>
           </div>
         </div>
-        <div className={style.intro}>
+        <div className={style.intro} data-aos="fade-up">
           <div className={style.introContainer}>
             <h1 className={style.introHeader}>Новая коллекция</h1>
             <span className={style.divider}></span>

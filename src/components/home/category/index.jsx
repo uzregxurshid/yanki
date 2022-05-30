@@ -3,11 +3,19 @@ import CategoryImage1 from '../../../assets/images/category/categoryf.png';
 import CategoryImage2 from '../../../assets/images/category/categoryt.png';
 import CategoryImage3 from '../../../assets/images/category/categoryth.png';
 import CategoryImage4 from '../../../assets/images/category/categoryfo.png';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import Card from '../card/index';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 const Category = () => {
   const navigate = useNavigate();
+  useEffect(() => {
+    AOS.init({
+      duration: 1000
+    });
+    AOS.refresh();
+  }, []);
   const style = {
     category: `category`,
     container:
@@ -36,28 +44,32 @@ const Category = () => {
                 backgroundPosition="center"
                 categoryText="Куртки"
                 to={'/category'}
-                cardClassName={style.item}></Card>
+                cardClassName={style.item}
+                aos="flip-right"></Card>
               <Card
                 image={CategoryImage2}
                 backgroundSize="cover"
                 backgroundPosition="center"
                 categoryText="Пальто"
                 to={'/category'}
-                cardClassName={style.item}></Card>
+                cardClassName={style.item}
+                aos="flip-right"></Card>
               <Card
                 image={CategoryImage3}
                 backgroundSize="cover"
                 backgroundPosition="center"
                 to={'/category'}
                 categoryText="Шубы"
-                cardClassName={style.itemsm}></Card>
+                cardClassName={style.itemsm}
+                aos="flip-right"></Card>
               <Card
                 image={CategoryImage4}
                 backgroundSize="cover"
                 backgroundPosition="center"
                 to={'/category'}
                 categoryText="Парки"
-                cardClassName={style.itemlg}></Card>
+                cardClassName={style.itemlg}
+                aos="flip-right"></Card>
               <li className={style.nexter}>
                 <button
                   type="button"

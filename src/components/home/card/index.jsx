@@ -71,15 +71,25 @@ const CardCategory = styled('div')`
   }
 `;
 
-const Card = ({ image, backgroundSize, backgroundPosition, categoryText, cardClassName, to }) => {
+const Card = ({
+  image,
+  backgroundSize,
+  backgroundPosition,
+  categoryText,
+  cardClassName,
+  to,
+  aos
+}) => {
   const navigate = useNavigate();
+
   return (
     <CardBody
       image={image}
       backgroundSize={backgroundSize}
       backgroundPosition={backgroundPosition}
       className={cardClassName}
-      onClick={() => navigate(to)}>
+      onClick={() => navigate(to)}
+      data-aos={aos}>
       <CardCategory>{categoryText}</CardCategory>
     </CardBody>
   );

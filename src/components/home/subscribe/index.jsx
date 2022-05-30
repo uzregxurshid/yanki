@@ -1,4 +1,14 @@
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 const Subscribe = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000
+    });
+    AOS.refresh();
+  }, []);
+
   const style = {
     sub: 'sub',
     container:
@@ -20,7 +30,7 @@ const Subscribe = () => {
   return (
     <div className={style.sub}>
       <div className={style.container}>
-        <div className={style.subContainer}>
+        <div className={style.subContainer} data-aos="fade-up">
           <h2 className={style.header}>Узнайте первым о новинках</h2>
           <form className={style.form}>
             <input

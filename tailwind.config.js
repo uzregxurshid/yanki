@@ -9,6 +9,9 @@ module.exports = {
     extend: {
       fontFamily: {
         Raleway: ['Raleway', 'Arial', 'Helvetica', 'sans-serif']
+      },
+      screens: {
+        clg: '1160px'
       }
     }
   },
