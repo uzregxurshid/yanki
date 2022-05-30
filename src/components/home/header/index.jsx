@@ -7,15 +7,16 @@ import Searching from '../../../assets/images/header/searchingblack.svg';
 import ProfilePic from '../../../assets/images/header/human.svg';
 import Instagram from '../../../assets/images/footer/instagram.min.svg';
 import Telegram from '../../../assets/images/footer/telegram.svg';
-
 import { Link } from 'react-router-dom';
 import './style.css';
+import { useRef } from 'react';
 const Header = () => {
+  const navbar = useRef();
   const style = {
     header: 'header',
     container:
       'max-w-[1160px] w-full mx-auto block px-5 pt-5 pb-[291px] flex flex-col md:pb-[330px] lg:pb-[393px]',
-    headerContainer: 'flex items-center justify-between relative',
+    headerContainer: 'flex items-center justify-between relative z-10',
     navbar: 'flex items-center justify-between w-full',
     navbarHamburgerButton:
       'w-[34px] h-[24px] cursor-pointer flex flex-col hover:animate-pulse active:animate-ping',
@@ -48,13 +49,20 @@ const Header = () => {
       'lg:mt-5 md:text-[16px] md:leading-[18px] link font-Raleway text-white text-sm leading-4 uppercase mt-4 flex active:animate-pulse',
     arrow: 'ml-[5px] hover:fill-[#E0BEA2]'
   };
+
+  const HamburgerOpen = (e) => {
+    console.log(e);
+    navbar.current.classList.toggle('translate-x-[calc(100vw)]');
+  };
   return (
     <div className={style.header}>
       <div className={style.container}>
         <div className={style.headerContainer}>
-          <div className="absolute flex flex-col items-center w-screen h-screen bg-white left-[-24px] top-10 invisible">
-            <ul className="flex flex-col">
-              <li className="pb-5 border-b-[0.3px] border-solid border-[#252525]  pt-5">
+          <div
+            ref={navbar}
+            className="absolute flex flex-col items-center w-screen md:pb-0 pb-[30px] bg-white left-[calc(-100vw-20px)] top-10 transition ease-in-out duration-500  overflow-hidden ">
+            <ul className="flex flex-col w-full md:flex-row ">
+              <li className="pb-5 border-b-[0.3px] border-solid border-[#252525]  mt-5 flex justify-center md:hidden">
                 <div className="flex">
                   <div className="flex relative">
                     <input
@@ -80,51 +88,62 @@ const Header = () => {
                   </select>
                 </div>
               </li>
-              <li className="py-5 border-b-[0.3px] border-solid border-[#252525]">
-                <a className="flex items-center justify-center" href="#">
+              <li className="mt-5 pb-5 border-b-[0.3px] border-solid border-[#252525] md:hidden md:hidden">
+                <a
+                  className="flex items-center justify-center hover:opacity-75 transition duration-500 active:opacity-50"
+                  href="#">
                   <img src={ProfilePic} alt="human" />
                   <span className=" font-Raleway not-italic uppercase text-base leading-5 text-[#252525] ml-[5px]">
                     ЛИЧНЫЙ КАБИНЕТ
                   </span>
                 </a>
               </li>
-              <li className="py-5 border-b-[0.3px] border-solid border-[#252525]">
-                <a className="flex items-center justify-center" href="#">
+              <li className="mt-5 pb-5 border-b-[0.3px] border-solid border-[#252525] md:hidden">
+                <a
+                  className="flex items-center justify-center hover:opacity-75 transition duration-500 active:opacity-50"
+                  href="#">
                   <span className=" font-Raleway not-italic uppercase text-base leading-5 text-[#252525]">
                     NEW
                   </span>
                 </a>
               </li>
-              <li className="py-5 border-b-[0.3px] border-solid border-[#252525]">
-                <a className="flex items-center justify-center" href="#">
+              <li className="mt-5 pb-5 border-b-[0.3px] border-solid border-[#252525] md:hidden">
+                <a className="flex items-center justify-center hover:opacity-75 transition duration-500 active:opacity-50">
                   <span className=" font-Raleway not-italic uppercase text-base leading-5 text-[#252525]">
                     КАТАЛОГ
                   </span>
                 </a>
               </li>
-              <li className="py-5 border-b-[0.3px] border-solid border-[#252525]">
-                <a className="flex items-center justify-center" href="#">
+              <li className="mt-5 pb-5 border-b-[0.3px] border-solid border-[#252525] md:hidden">
+                <a className="flex items-center justify-center hover:opacity-75 transition duration-500 active:opacity-50">
                   <span className=" font-Raleway not-italic uppercase text-base leading-5 text-[#252525]">
                     О НАС
                   </span>
                 </a>
               </li>
-              <li className="py-5 border-b-[0.3px] border-solid border-[#252525]">
-                <a className="flex items-center justify-center" href="#">
+              <li className="ml-[25px] md:mt-[34px] md:pb-[30px] mt-5 pb-5 md:border-b-0 border-b-[0.3px] border-solid border-[#252525]">
+                <a className="flex items-center justify-center hover:opacity-75 transition duration-500 active:opacity-50">
+                  <span className=" font-Raleway not-italic uppercase text-base leading-5 text-[#252525]">
+                    ОПЛАТА И ДОСТАВКА
+                  </span>
+                </a>
+              </li>
+              <li className="ml-[25px] md:mt-[34px] md:pb-[30px] mt-5 pb-5 md:border-b-0 border-b-[0.3px] border-solid border-[#252525]">
+                <a className="flex items-center justify-center hover:opacity-75 transition duration-500 active:opacity-50">
                   <span className=" font-Raleway not-italic uppercase text-base leading-5 text-[#252525]">
                     УСЛОВИЯ ВОЗВРАТА
                   </span>
                 </a>
               </li>
-              <li className="py-5 border-b-[0.3px] border-solid border-[#252525]">
-                <a className="flex items-center justify-center" href="#">
+              <li className="ml-[25px] md:mt-[34px] md:pb-[30px] mt-5 pb-5 md:border-b-0 border-b-[0.3px] border-solid border-[#252525]">
+                <a className="flex items-center justify-center hover:opacity-75 transition duration-500 active:opacity-50">
                   <span className=" font-Raleway not-italic uppercase text-base leading-5 text-[#252525]">
                     КОНТАКТЫ
                   </span>
                 </a>
               </li>
             </ul>
-            <div className="flex flex-col mt-20">
+            <div className="flex flex-col mt-20 md:hidden">
               <ul className="flex items-center flex-col">
                 <li>
                   <ul className="flex item-center">
@@ -159,7 +178,7 @@ const Header = () => {
           </div>
           <div className={style.navbar}>
             <div className={style.left}>
-              <button className={style.navbarHamburgerButton}>
+              <button className={style.navbarHamburgerButton} type="button" onClick={HamburgerOpen}>
                 <span className={style.navbarHamburger1}></span>
                 <span className={style.navbarHamburger2}></span>
                 <span className={style.navbarHamburger3}></span>
