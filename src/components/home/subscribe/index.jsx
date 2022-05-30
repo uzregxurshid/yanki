@@ -32,7 +32,7 @@ const Subscribe = () => {
     policy: `mt-[15px] text-[14px] font-extralight font-Raleway text-center leading-[16px] not-italic 
     md:text-[15px] lg:text-[16px] lg:leading-[19px] md:mt-[18px] lg:mt-[20px] `
   };
-
+  const [defineText, setDefineText] = useState('You subscribed successfully.');
   const NewSubscribe = (e) => {
     e.preventDefault();
     axios
@@ -42,7 +42,13 @@ const Subscribe = () => {
       })
       .then((res) => {
         if (res.data.code === 'SUCCESS') {
+          setEmail('');
           setOpen(true);
+        }
+        if (res.data.code === 'ER_DUP_ENTRY') {
+          setDefineText('You are already subscribed.');
+          setOpen(true);
+          setEmail('');
         }
       });
   };
@@ -68,7 +74,7 @@ const Subscribe = () => {
               </Transition.Child>
 
               <div className="fixed z-10 inset-0 overflow-y-auto">
-                <div className="flex items-end sm:items-center justify-center min-h-full p-4 text-center sm:p-0">
+                <div className="flex items-center sm:items-center justify-center min-h-full p-4 text-center sm:p-0">
                   <Transition.Child
                     as={Fragment}
                     enter="ease-out duration-300"
@@ -82,19 +88,19 @@ const Subscribe = () => {
                         <div className="sm:flex  sm:flex-col sm:items-center">
                           <div className="mx-auto flex-shrink-0 flex items-center justify-center h-20 w-20 rounded-full bg-slate-100 sm:mx-0 sm:h-10 sm:w-10">
                             <CheckCircleIcon
-                              className="h-16 w-16 text-teal-500"
+                              className="h-16 w-16 text-yellow-400"
                               aria-hidden="true"
                             />
                           </div>
                           <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                             <Dialog.Title
                               as="h2"
-                              className="font-extrabold text-transparent text-4xl sm:text-6xl bg-clip-text bg-gradient-to-r from-teal-600 to-cyan-500">
+                              className="font-extrabold text-transparent text-4xl sm:text-6xl bg-clip-text bg-gradient-to-r from-yellow-400 to-amber-300">
                               Subscribed
                             </Dialog.Title>
                             <div className="mt-2">
                               <p className="text-gray-500 text-center text-xl sm:text-2xl">
-                                You subscribed successfully.
+                                {defineText}
                               </p>
                             </div>
                           </div>
@@ -103,7 +109,7 @@ const Subscribe = () => {
                       <div className="bg-gray-50 px-4 py-3 sm:px-6 flex flex-col items-center">
                         <button
                           type="button"
-                          className=" w-20 h-8 sm:w-36 sm:h-10 rounded bg-gradient-to-tr from-green-400 outline-none to-cyan-500 text-white text-sm font-semibold  hover:bg-gradient-to-tr"
+                          className=" w-20 h-8 sm:w-36 sm:h-10 rounded bg-gradient-to-tr from-yellow-400 outline-none to-red-400 text-white text-sm font-semibold  hover:bg-gradient-to-tr"
                           onClick={() => setOpen(false)}>
                           Submit
                         </button>
