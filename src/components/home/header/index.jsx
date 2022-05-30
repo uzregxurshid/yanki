@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 import './style.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 const Header = () => {
   useEffect(() => {
     AOS.init({
@@ -20,7 +20,13 @@ const Header = () => {
     AOS.refresh();
   }, []);
 
+  const [open, setOpen] = useState(false);
   const navbar = useRef();
+  const [hamburgerStyle, setHamburgerStyle] = useState({
+    navbarHamburger1: 'bg-white block w-[34px] h-1',
+    navbarHamburger2: 'bg-white block w-[26px] h-1 mt-1.5',
+    navbarHamburger3: 'bg-white block w-[18px] h-1 mt-1.5'
+  });
   const style = {
     header: 'header',
     container:
@@ -29,9 +35,7 @@ const Header = () => {
     navbar: 'flex items-center justify-between w-full',
     navbarHamburgerButton:
       'w-[34px] h-[24px] cursor-pointer flex flex-col hover:animate-pulse active:animate-ping',
-    navbarHamburger1: 'bg-white block w-[34px] h-1',
-    navbarHamburger2: 'bg-white block w-[26px] h-1 mt-1.5',
-    navbarHamburger3: 'bg-white block w-[18px] h-1 mt-1.5',
+
     selectLanguage:
       'flex md:hidden w-full h-[19px] ml-[22px] cursor-pointer bg-transparent font-Raleway font-light border-none text-base leading-[19px] text-white',
     logo: 'basis-38 ml-[-20px] md:ml-1',
@@ -59,9 +63,25 @@ const Header = () => {
     arrow: 'ml-[5px] hover:fill-[#E0BEA2]'
   };
 
-  const HamburgerOpen = (e) => {
-    console.log(e);
+  const HamburgerOpen = () => {
     navbar.current.classList.toggle('translate-x-[calc(100vw)]');
+    if (!open) {
+      setHamburgerStyle({
+        navbarHamburger1:
+          'bg-white block w-[34px] h-1 rotate-45 translate-y-[9.5px] rounded transition duration-500 ease-in-out',
+        navbarHamburger2: 'bg-white hidden w-[26px] h-1 mt-1.5',
+        navbarHamburger3:
+          'bg-white block w-[34px] h-1 mt-1.5 -rotate-45 rounded transition duration-500 ease-in-out'
+      });
+      setOpen(!open);
+    } else {
+      setHamburgerStyle({
+        navbarHamburger1: 'bg-white block w-[34px] h-1 transition duration-500 ease-in-out',
+        navbarHamburger2: 'bg-white block w-[26px] h-1 mt-1.5 transition duration-500 ease-in-out',
+        navbarHamburger3: 'bg-white block w-[18px] h-1 mt-1.5 transition duration-500 ease-in-out'
+      });
+      setOpen(!open);
+    }
   };
   return (
     <div className={style.header}>
@@ -194,9 +214,9 @@ const Header = () => {
           <div className={style.navbar}>
             <div className={style.left}>
               <button className={style.navbarHamburgerButton} type="button" onClick={HamburgerOpen}>
-                <span className={style.navbarHamburger1}></span>
-                <span className={style.navbarHamburger2}></span>
-                <span className={style.navbarHamburger3}></span>
+                <span className={hamburgerStyle.navbarHamburger1}></span>
+                <span className={hamburgerStyle.navbarHamburger2}></span>
+                <span className={hamburgerStyle.navbarHamburger3}></span>
               </button>
               <select className={style.selectLanguage}>
                 <option className={style.option} value="ru">

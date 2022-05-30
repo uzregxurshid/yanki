@@ -1,7 +1,16 @@
 import 'tw-elements';
 import Instagram from '../../../assets/images/footer/instagram.min.svg';
 import Telegram from '../../../assets/images/footer/telegram.svg';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 const Footer = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 500
+    });
+    AOS.refresh();
+  }, []);
   const style = {
     footer: 'footer',
     container: 'max-w-[1160px] w-full mx-auto block px-5 flex flex-col pb-[17px]',
@@ -18,7 +27,7 @@ const Footer = () => {
   return (
     <div className={style.footer}>
       <div className={style.container}>
-        <div className={style.footerContainer}>
+        <div className={style.footerContainer} data-aos="fade-up">
           <ul className="md:flex hidden w-9/12 justify-between">
             <li className="flex flex-col">
               <h3 className="text-[20px] leading-[23px] not-italic font-light font-Raleway">

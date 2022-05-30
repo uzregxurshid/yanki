@@ -12,7 +12,7 @@ const Subscribe = () => {
     AOS.refresh();
   }, []);
   const [email, setEmail] = useState('');
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const cancelButtonRef = useRef(null);
   const style = {
     sub: 'sub',
