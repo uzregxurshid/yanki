@@ -1,6 +1,9 @@
+import { Dialog, Transition } from '@headlessui/react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { useEffect } from 'react';
+import axios from 'axios';
+import { Fragment, useEffect, useRef, useState } from 'react';
+import { CheckCircleIcon } from '@heroicons/react/outline';
 const Subscribe = () => {
   useEffect(() => {
     AOS.init({
@@ -8,7 +11,9 @@ const Subscribe = () => {
     });
     AOS.refresh();
   }, []);
-
+  const [email, setEmail] = useState('');
+  const [open, setOpen] = useState(true);
+  const cancelButtonRef = useRef(null);
   const style = {
     sub: 'sub',
     container:
@@ -27,18 +32,98 @@ const Subscribe = () => {
     policy: `mt-[15px] text-[14px] font-extralight font-Raleway text-center leading-[16px] not-italic 
     md:text-[15px] lg:text-[16px] lg:leading-[19px] md:mt-[18px] lg:mt-[20px] `
   };
+
+  const NewSubscribe = (e) => {
+    e.preventDefault();
+    axios
+      // eslint-disable-next-line no-undef
+      .post(`${process.env.REACT_APP_API}/public/mail/subscribe`, {
+        email
+      })
+      .then((res) => {
+        if (res.data.code === 'SUCCESS') {
+          setOpen(true);
+        }
+      });
+  };
   return (
     <div className={style.sub}>
       <div className={style.container}>
         <div className={style.subContainer} data-aos="fade-up">
+          <Transition.Root show={open} as={Fragment}>
+            <Dialog
+              as="div"
+              className="relative z-10"
+              initialFocus={cancelButtonRef}
+              onClose={setOpen}>
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0"
+                enterTo="opacity-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100"
+                leaveTo="opacity-0">
+                <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+              </Transition.Child>
+
+              <div className="fixed z-10 inset-0 overflow-y-auto">
+                <div className="flex items-end sm:items-center justify-center min-h-full p-4 text-center sm:p-0">
+                  <Transition.Child
+                    as={Fragment}
+                    enter="ease-out duration-300"
+                    enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                    enterTo="opacity-100 translate-y-0 sm:scale-100"
+                    leave="ease-in duration-200"
+                    leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                    leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
+                    <Dialog.Panel className="relative bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-lg sm:w-full">
+                      <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                        <div className="sm:flex  sm:flex-col sm:items-center">
+                          <div className="mx-auto flex-shrink-0 flex items-center justify-center h-20 w-20 rounded-full bg-slate-100 sm:mx-0 sm:h-10 sm:w-10">
+                            <CheckCircleIcon
+                              className="h-16 w-16 text-teal-500"
+                              aria-hidden="true"
+                            />
+                          </div>
+                          <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                            <Dialog.Title
+                              as="h2"
+                              className="font-extrabold text-transparent text-4xl sm:text-6xl bg-clip-text bg-gradient-to-r from-teal-600 to-cyan-500">
+                              Subscribed
+                            </Dialog.Title>
+                            <div className="mt-2">
+                              <p className="text-gray-500 text-center text-xl sm:text-2xl">
+                                You subscribed successfully.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="bg-gray-50 px-4 py-3 sm:px-6 flex flex-col items-center">
+                        <button
+                          type="button"
+                          className=" w-20 h-8 sm:w-36 sm:h-10 rounded bg-gradient-to-tr from-green-400 outline-none to-cyan-500 text-white text-sm font-semibold  hover:bg-gradient-to-tr"
+                          onClick={() => setOpen(false)}>
+                          Submit
+                        </button>
+                      </div>
+                    </Dialog.Panel>
+                  </Transition.Child>
+                </div>
+              </div>
+            </Dialog>
+          </Transition.Root>
           <h2 className={style.header}>Узнайте первым о новинках</h2>
-          <form className={style.form}>
+          <form className={style.form} onSubmit={NewSubscribe}>
             <input
               className={style.input}
               type="email"
               placeholder="Введите ваш email"
               required="required"
               id="subscribe"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <button className={style.button}>Подписаться</button>
             <label className={style.policy} htmlFor="subscribe">
