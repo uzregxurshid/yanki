@@ -40,15 +40,19 @@ const Subscribe = () => {
       .post(`${process.env.REACT_APP_API}public/mail/subscribe`, {
         email
       })
-      .then(() => {
-        setDefineText('You are subscribed.');
-        setOpen(true);
-        setEmail('');
+      .then((res) => {
+        if (res.status === 200) {
+          setDefineText('You are subscribed.');
+          setOpen(true);
+          setEmail('');
+        }
       })
       .catch((e) => {
-        setDefineText(e.response.data.result);
-        setOpen(true);
-        setEmail('');
+        if (e) {
+          setDefineText(e.response.data.result);
+          setOpen(true);
+          setEmail('');
+        }
       });
   };
   return (
