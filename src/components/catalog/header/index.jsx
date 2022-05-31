@@ -1,14 +1,12 @@
-import Logo from '../../../assets/images/header/YANKI.svg';
-import Favorites from '../../../assets/images/header/favorit.svg';
-import Cart from '../../../assets/images/header/cart.svg';
-import Profile from '../../../assets/images/header/profile.svg';
-import Search from '../../../assets/images/header/search.svg';
+import Logo from '../../../assets/images/header/YANKINEW.svg';
+import Favorites from '../../../assets/images/category/header/like.min.svg';
+import Cart from '../../../assets/images/category/header/cart.svg';
+import Profile from '../../../assets/images/category/header/profile.svg';
 import Searching from '../../../assets/images/header/searchingblack.svg';
 import ProfilePic from '../../../assets/images/header/human.svg';
 import Instagram from '../../../assets/images/footer/instagram.min.svg';
 import Telegram from '../../../assets/images/footer/telegram.svg';
 import { Link } from 'react-router-dom';
-import './style.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect, useRef, useState } from 'react';
@@ -23,21 +21,20 @@ const Header = () => {
   const [open, setOpen] = useState(false);
   const navbar = useRef();
   const [hamburgerStyle, setHamburgerStyle] = useState({
-    navbarHamburger1: 'bg-white block w-[34px] h-1',
-    navbarHamburger2: 'bg-white block w-[26px] h-1 mt-1.5',
-    navbarHamburger3: 'bg-white block w-[18px] h-1 mt-1.5'
+    navbarHamburger1: 'bg-[#E0BEA2] block w-[34px] h-1',
+    navbarHamburger2: 'bg-[#E0BEA2] block w-[26px] h-1 mt-1.5',
+    navbarHamburger3: 'bg-[#E0BEA2] block w-[18px] h-1 mt-1.5'
   });
   const style = {
-    header: 'header',
-    container:
-      'max-w-[1160px] w-full mx-auto block px-5 pt-5 pb-[291px] flex flex-col md:pb-[330px] lg:pb-[393px]',
+    header: '',
+    container: 'max-w-[1160px] w-full mx-auto block px-5 py-[19px] flex flex-col ',
     headerContainer: 'flex items-center justify-between relative z-10',
     navbar: 'flex items-center justify-between w-full',
     navbarHamburgerButton:
       'w-[34px] h-[24px] cursor-pointer flex flex-col hover:animate-pulse active:animate-ping',
 
     selectLanguage:
-      'flex md:hidden w-full h-[19px] ml-[22px] cursor-pointer bg-transparent font-Raleway font-light border-none text-base leading-[19px] text-white',
+      'flex md:hidden w-full h-[19px] ml-[22px] cursor-pointer bg-transparent font-Raleway font-light border-none text-base leading-[19px] text-[#252525]',
     logo: 'basis-38 ml-[-20px] md:ml-1',
     left: 'flex items-center',
     cart: 'ml-5 hover:animate-pulse active:animate-ping',
@@ -47,11 +44,12 @@ const Header = () => {
     search: 'hidden md:inline hover:animate-pulse active:animate-ping',
     list: 'hidden md:flex ml-[30px] lg:ml-[104px]',
     listItem: 'ml-3 lg:ml-6',
-    listLink: 'text-base text-white font-Raleway font-light hover:animate-pulse',
+    listLink: 'text-base text-[#252525] font-Raleway font-light hover:animate-pulse',
+    listLinkActive: 'text-base text-[#E0BEA2] font-Raleway font-light hover:animate-pulse',
     selectLang:
-      'hidden md:flex w-full h-[19px] ml-[22px] cursor-pointer bg-transparent font-Raleway font-light border-none text-base leading-[19px] text-white',
+      'hidden md:flex w-full h-[19px] ml-[22px] cursor-pointer bg-transparent font-Raleway font-light border-none text-base leading-[19px] text-[#252525]',
     selectMoney:
-      'hidden md:flex w-full h-[19px] ml-[22px] cursor-pointer bg-transparent font-Raleway font-light border-none text-base leading-[19px] text-white',
+      'hidden md:flex w-full h-[19px] ml-[22px] cursor-pointer bg-transparent font-Raleway font-light border-none text-base leading-[19px] text-[#252525]',
     langmon: 'flex mr-5 lg:mr-[75px]',
     intro: 'self-center mt-[246px]',
     introContainer: 'flex flex-col items-center justify-center',
@@ -68,17 +66,19 @@ const Header = () => {
     if (!open) {
       setHamburgerStyle({
         navbarHamburger1:
-          'bg-white block w-[34px] h-1 rotate-45 translate-y-[9.5px] rounded transition duration-500 ease-in-out',
-        navbarHamburger2: 'bg-white hidden w-[26px] h-1 mt-1.5',
+          'bg-[#E0BEA2] block w-[34px] h-1 rotate-45 translate-y-[9.5px] rounded transition duration-500 ease-in-out',
+        navbarHamburger2: 'bg-[#E0BEA2] hidden w-[26px] h-1 mt-1.5',
         navbarHamburger3:
-          'bg-white block w-[34px] h-1 mt-1.5 -rotate-45 rounded transition duration-500 ease-in-out'
+          'bg-[#E0BEA2] block w-[34px] h-1 mt-1.5 -rotate-45 rounded transition duration-500 ease-in-out'
       });
       setOpen(!open);
     } else {
       setHamburgerStyle({
-        navbarHamburger1: 'bg-white block w-[34px] h-1 transition duration-500 ease-in-out',
-        navbarHamburger2: 'bg-white block w-[26px] h-1 mt-1.5 transition duration-500 ease-in-out',
-        navbarHamburger3: 'bg-white block w-[18px] h-1 mt-1.5 transition duration-500 ease-in-out'
+        navbarHamburger1: 'bg-[#E0BEA2] block w-[34px] h-1 transition duration-500 ease-in-out',
+        navbarHamburger2:
+          'bg-[#E0BEA2] block w-[26px] h-1 mt-1.5 transition duration-500 ease-in-out',
+        navbarHamburger3:
+          'bg-[#E0BEA2] block w-[18px] h-1 mt-1.5 transition duration-500 ease-in-out'
       });
       setOpen(!open);
     }
@@ -238,7 +238,7 @@ const Header = () => {
                   </Link>
                 </li>
                 <li className={style.listItem}>
-                  <Link className={style.listLink} to={'/catalog'}>
+                  <Link className={style.listLinkActive} to={'/catalog'}>
                     КАТАЛОГ
                   </Link>
                 </li>
@@ -281,7 +281,7 @@ const Header = () => {
               </div>
               <div className={style.buttons}>
                 <button className={style.search}>
-                  <img src={Search} width={20} height={20} />
+                  <img src={Searching} width={20} height={20} />
                 </button>
                 <button className={style.profile}>
                   <img src={Profile} width={20} height={20} />
@@ -294,28 +294,6 @@ const Header = () => {
                 </button>
               </div>
             </div>
-          </div>
-        </div>
-        <div className={style.intro} data-aos="fade-up">
-          <div className={style.introContainer}>
-            <h1 className={style.introHeader}>Новая коллекция</h1>
-            <span className={style.divider}></span>
-            <Link className={style.promotion} to={'/catalog'}>
-              <span>Смотреть Новинки</span>{' '}
-              <svg
-                className={style.arrow}
-                width="14"
-                height="14"
-                viewBox="0 0 14 14"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  className={style.arrow}
-                  d="M7.88906 7L4 3.11094L5.11094 2L10.1109 7L5.11094 12L4 10.8891L7.88906 7Z"
-                  fill="white"
-                />
-              </svg>
-            </Link>
           </div>
         </div>
       </div>

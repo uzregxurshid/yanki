@@ -37,19 +37,18 @@ const Subscribe = () => {
     e.preventDefault();
     axios
       // eslint-disable-next-line no-undef
-      .post(`${process.env.REACT_APP_API}/public/mail/subscribe`, {
+      .post(`${process.env.REACT_APP_API}public/mail/subscribe`, {
         email
       })
-      .then((res) => {
-        if (res.data.code === 'SUCCESS') {
-          setEmail('');
-          setOpen(true);
-        }
-        if (res.data.code === 'ER_DUP_ENTRY') {
-          setDefineText('You are already subscribed.');
-          setOpen(true);
-          setEmail('');
-        }
+      .then(() => {
+        setDefineText('You are subscribed.');
+        setOpen(true);
+        setEmail('');
+      })
+      .catch((e) => {
+        setDefineText(e.response.data.result);
+        setOpen(true);
+        setEmail('');
       });
   };
   return (
@@ -95,7 +94,7 @@ const Subscribe = () => {
                           <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                             <Dialog.Title
                               as="h2"
-                              className="font-extrabold text-transparent text-4xl sm:text-6xl bg-clip-text bg-gradient-to-r from-yellow-400 to-amber-300">
+                              className="font-extrabold text-center text-transparent text-4xl sm:text-6xl bg-clip-text bg-gradient-to-r from-yellow-400 to-amber-300">
                               Subscribed
                             </Dialog.Title>
                             <div className="mt-2">

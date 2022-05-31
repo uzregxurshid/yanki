@@ -43,7 +43,7 @@ const Category = () => {
                 backgroundSize="cover"
                 backgroundPosition="center"
                 categoryText="Куртки"
-                to={'/category'}
+                to={'/catalog'}
                 cardClassName={style.item}
                 aos="flip-right"></Card>
               <Card
@@ -51,14 +51,14 @@ const Category = () => {
                 backgroundSize="cover"
                 backgroundPosition="center"
                 categoryText="Пальто"
-                to={'/category'}
+                to={'/catalog'}
                 cardClassName={style.item}
                 aos="flip-right"></Card>
               <Card
                 image={CategoryImage3}
                 backgroundSize="cover"
                 backgroundPosition="center"
-                to={'/category'}
+                to={'/catalog'}
                 categoryText="Шубы"
                 cardClassName={style.itemsm}
                 aos="flip-right"></Card>
@@ -66,7 +66,7 @@ const Category = () => {
                 image={CategoryImage4}
                 backgroundSize="cover"
                 backgroundPosition="center"
-                to={'/category'}
+                to={'/catalog'}
                 categoryText="Парки"
                 cardClassName={style.itemlg}
                 aos="flip-right"></Card>
@@ -76,7 +76,7 @@ const Category = () => {
                   aria-label="Перейти к странице Категория"
                   className={style.next}
                   aria-hidden="true"
-                  onClick={() => navigate('/category')}>
+                  onClick={() => navigate('/catalog')}>
                   <img className={style.nextImage} src={NextImage} alt="Next button" />
                 </button>
               </li>
