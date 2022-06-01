@@ -12,6 +12,9 @@ module.exports = {
       },
       screens: {
         clg: '1160px'
+      },
+      content: {
+        rightRow: "url('./assets/images/category/routeVector.svg')"
       }
     }
   },

@@ -129,12 +129,16 @@ const Footer = () => {
                 <div className="accordion-body py-4 px-5 flex justify-center">
                   <ul className="list-reset">
                     <li className="mb-3">
-                      <a href="#" className="text-gray-600 hover:text-gray-900 font-Raleway">
+                      <a
+                        href="#"
+                        className=" hover:text-[#E0BEA2] transition duration-500  text-gray-600 font-Raleway">
                         О нас
                       </a>
                     </li>
                     <li className="mb-3">
-                      <a href="#" className="text-gray-600 hover:text-gray-900 font-Raleway">
+                      <a
+                        href="#"
+                        className=" hover:text-[#E0BEA2] transition duration-500  text-gray-600 font-Raleway">
                         Контакты
                       </a>
                     </li>
@@ -162,17 +166,23 @@ const Footer = () => {
                 <div className="accordion-body py-4 px-5 flex justify-center">
                   <ul className="list-reset">
                     <li className="mb-3">
-                      <a href="#" className="text-gray-600 hover:text-gray-900 font-Raleway">
+                      <a
+                        href="#"
+                        className="hover:text-[#E0BEA2] transition duration-500 text-gray-600  font-Raleway">
                         Оплата и доставка
                       </a>
                     </li>
                     <li className="mb-3">
-                      <a href="#" className="text-gray-600 hover:text-gray-900 font-Raleway">
+                      <a
+                        href="#"
+                        className="hover:text-[#E0BEA2] transition duration-500 text-gray-600  font-Raleway">
                         Условия возврата
                       </a>
                     </li>
                     <li className="mb-3">
-                      <a href="#" className="text-gray-600 hover:text-gray-900 font-Raleway">
+                      <a
+                        href="#"
+                        className="hover:text-[#E0BEA2] transition duration-500 text-gray-600  font-Raleway">
                         Бонусная система
                       </a>
                     </li>
@@ -201,17 +211,23 @@ const Footer = () => {
                 <div className="accordion-body py-4 px-5 flex justify-center">
                   <ul className="list-reset">
                     <li className="mb-3">
-                      <a href="#" className="text-gray-600 hover:text-gray-900 font-Raleway">
+                      <a
+                        href="#"
+                        className="text-gray-600 hover:text-[#E0BEA2] transition duration-500  font-Raleway">
                         Избранное
                       </a>
                     </li>
                     <li className="mb-3">
-                      <a href="#" className="text-gray-600 hover:text-gray-900 font-Raleway">
+                      <a
+                        href="#"
+                        className="text-gray-600 hover:text-[#E0BEA2] transition duration-500  font-Raleway">
                         Публичная оферта
                       </a>
                     </li>
                     <li className="mb-3">
-                      <a href="#" className="text-gray-600 hover:text-gray-900 font-Raleway">
+                      <a
+                        href="#"
+                        className="text-gray-600 hover:text-[#E0BEA2] transition duration-500  font-Raleway">
                         Политика конфиденциальности
                       </a>
                     </li>

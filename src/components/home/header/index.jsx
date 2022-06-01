@@ -47,7 +47,8 @@ const Header = () => {
     search: 'hidden md:inline hover:animate-pulse active:animate-ping',
     list: 'hidden md:flex ml-[30px] lg:ml-[104px]',
     listItem: 'ml-3 lg:ml-6',
-    listLink: 'text-base text-white font-Raleway font-light hover:animate-pulse',
+    listLink:
+      'text-base text-white font-Raleway font-light hover:animate-pulse hover:text-[#E0BEA2] transition duration-500',
     selectLang:
       'hidden md:flex w-full h-[19px] ml-[22px] cursor-pointer bg-transparent font-Raleway font-light border-none text-base leading-[19px] text-white',
     selectMoney:
@@ -122,7 +123,7 @@ const Header = () => {
                   className="flex cursor-pointer items-center justify-center hover:opacity-75 transition duration-500 active:opacity-50"
                   href="#">
                   <img src={ProfilePic} alt="human" />
-                  <span className=" font-Raleway not-italic uppercase text-base leading-5 text-[#252525] ml-[5px]">
+                  <span className="hover:text-[#E0BEA2] transition duration-500  font-Raleway not-italic uppercase text-base leading-5 text-[#252525] ml-[5px]">
                     ЛИЧНЫЙ КАБИНЕТ
                   </span>
                 </a>
@@ -131,7 +132,7 @@ const Header = () => {
                 <a
                   className="cursor-pointer flex items-center justify-center hover:opacity-75 transition duration-500 active:opacity-50"
                   href="#">
-                  <span className=" font-Raleway not-italic uppercase text-base leading-5 text-[#252525]">
+                  <span className="hover:text-[#E0BEA2] transition duration-500  font-Raleway not-italic uppercase text-base leading-5 text-[#252525]">
                     NEW
                   </span>
                 </a>
@@ -140,14 +141,14 @@ const Header = () => {
                 <Link
                   to={'/catalog'}
                   className="cursor-pointer flex items-center justify-center hover:opacity-75 transition duration-500 active:opacity-50">
-                  <span className=" font-Raleway not-italic uppercase text-base leading-5 text-[#252525]">
+                  <span className="hover:text-[#E0BEA2] transition duration-500  font-Raleway not-italic uppercase text-base leading-5 text-[#252525]">
                     КАТАЛОГ
                   </span>
                 </Link>
               </li>
               <li className="mt-5 pb-5 border-b-[0.3px] border-solid border-[#252525] md:hidden">
                 <a className="cursor-pointer flex items-center justify-center hover:opacity-75 transition duration-500 active:opacity-50">
-                  <span className=" font-Raleway not-italic uppercase text-base leading-5 text-[#252525]">
+                  <span className="hover:text-[#E0BEA2] transition duration-500  font-Raleway not-italic uppercase text-base leading-5 text-[#252525]">
                     О НАС
                   </span>
                 </a>
@@ -160,21 +161,21 @@ const Header = () => {
               </li>
               <li className="hidden md:flex lg:ml-[128px] md:ml-10 md:mt-5 md:pb-5 mt-5 pb-5 md:border-b-0 border-b-[0.3px] border-solid border-[#252525]">
                 <a className="cursor-pointer flex items-center justify-center hover:opacity-75 transition duration-500 active:opacity-50">
-                  <span className=" font-Raleway not-italic uppercase text-base leading-5 text-[#252525]">
+                  <span className="hover:text-[#E0BEA2] transition duration-500  font-Raleway not-italic uppercase text-base leading-5 text-[#252525]">
                     ОПЛАТА И ДОСТАВКА
                   </span>
                 </a>
               </li>
               <li className="md:ml-3 lg:ml-6 md:mt-5 md:pb-5 mt-5 pb-5 md:border-b-0 border-b-[0.3px] border-solid border-[#252525]">
                 <a className="cursor-pointer flex items-center justify-center hover:opacity-75 transition duration-500 active:opacity-50">
-                  <span className=" font-Raleway not-italic uppercase text-base leading-5 text-[#252525]">
+                  <span className="hover:text-[#E0BEA2] transition duration-500  font-Raleway not-italic uppercase text-base leading-5 text-[#252525]">
                     УСЛОВИЯ ВОЗВРАТА
                   </span>
                 </a>
               </li>
               <li className="md:ml-3 lg:ml-6 md:mt-5 md:pb-5 mt-5 pb-5 md:border-b-0 border-b-[0.3px] border-solid border-[#252525]">
                 <a className="cursor-pointer flex items-center justify-center hover:opacity-75 transition duration-500 active:opacity-50">
-                  <span className=" font-Raleway not-italic uppercase text-base leading-5 text-[#252525]">
+                  <span className="hover:text-[#E0BEA2] transition duration-500  font-Raleway not-italic uppercase text-base leading-5 text-[#252525]">
                     КОНТАКТЫ
                   </span>
                 </a>
