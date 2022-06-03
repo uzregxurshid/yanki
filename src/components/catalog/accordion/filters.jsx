@@ -41,6 +41,13 @@ const Filters = () => {
           <Select
             defaultValue={flavourOptions[2]}
             options={flavourOptions}
+            styles={{
+              menuList: (provided, state) => ({
+                ...provided,
+                overflow: 'scroll',
+                height: 'auto'
+              })
+            }}
             theme={(theme) => ({
               ...theme,
               borderRadius: 0,

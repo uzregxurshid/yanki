@@ -26,7 +26,7 @@ const Header = () => {
     navbarHamburger3: 'bg-[#E0BEA2] block w-[18px] h-1 mt-1.5'
   });
   const style = {
-    header: 'bg-teal-500',
+    header: '',
     container: 'max-w-[1160px] w-full mx-auto block px-5 py-[19px] flex flex-col ',
     headerContainer: 'flex items-center justify-between relative z-10',
     navbar: 'flex items-center justify-between w-full',
