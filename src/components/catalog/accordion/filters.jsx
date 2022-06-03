@@ -1,13 +1,50 @@
 /* eslint-disable no-unused-vars */
 import { useRef } from 'react';
-import { sizeOptions } from './docs/data';
+import { colourOptions, sizeOptions } from './docs/data';
 import Select, { components } from 'react-select';
 import AccordionImg from '../../../assets/images/category/filterMore.svg';
 import FilterImg from '../../../assets/images/category/filtr.svg';
 import { useDispatch } from 'react-redux';
 import { setSizeAction } from '../../../redux/reducers/setSize';
+import chroma from 'chroma-js';
+import { setColor } from '../../../redux/reducers/setColor';
 
 const Filters = () => {
+  const colorOptionStyle = (styles, { data, isDisabled, isFocused, isSelected }) => {
+    const color = chroma(data.color);
+    return {
+      ...styles,
+      backgroundColor: isDisabled
+        ? undefined
+        : isSelected
+        ? data.color
+        : isFocused
+        ? color.alpha(0.1).css()
+        : undefined,
+      color: isDisabled
+        ? '#ccc'
+        : isSelected
+        ? chroma.contrast(color, 'white') > 2
+          ? 'white'
+          : 'black'
+        : data.color,
+      cursor: isDisabled ? 'not-allowed' : 'default',
+      borderBottom: '.25px solid #E0BEA2',
+      ':active': {
+        ...styles[':active'],
+        backgroundColor: !isDisabled
+          ? isSelected
+            ? data.color
+            : color.alpha(0.3).css()
+          : undefined
+      },
+      ':hover': {
+        boxShadow: 'none',
+        borderBottom: isFocused ? '.25px solid #E0BEA2' : 'none'
+      }
+    };
+  };
+
   const dispatch = useDispatch();
   const controlStyle = (provided, state) => ({
     ...provided,
@@ -106,6 +143,24 @@ const Filters = () => {
                 transform: state.selectProps.menuIsOpen ? 'rotate(180deg)' : 'rotate(0deg)'
               }),
               indicatorSeparator: () => null
+            }}
+          />
+          <Select
+            closeMenuOnSelect={true}
+            placeholder="Цвет"
+            components={{ DropdownIndicator }}
+            options={colourOptions}
+            onChange={(option) => dispatch(setColor(option))}
+            styles={{
+              control: controlStyle,
+              menu: menuStyle,
+              option: colorOptionStyle,
+              dropdownIndicator: (provided, state) => ({
+                ...provided,
+                transform: state.selectProps.menuIsOpen ? 'rotate(180deg)' : 'rotate(0deg)'
+              }),
+              indicatorSeparator: () => null,
+              placeholder: placeholderStyle
             }}
           />
         </div>
