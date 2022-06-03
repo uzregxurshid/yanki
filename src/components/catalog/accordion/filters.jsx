@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { useRef } from 'react';
-import { colourOptions, sizeOptions } from './docs/data';
+import { colourOptions, priceOptions, sizeOptions } from './docs/data';
 import Select, { components } from 'react-select';
 import AccordionImg from '../../../assets/images/category/filterMore.svg';
 import FilterImg from '../../../assets/images/category/filtr.svg';
@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 import { setSizeAction } from '../../../redux/reducers/setSize';
 import chroma from 'chroma-js';
 import { setColor } from '../../../redux/reducers/setColor';
-
+import { setPrice } from '../../../redux/reducers/setPrice';
 const Filters = () => {
   const colorOptionStyle = (styles, { data, isDisabled, isFocused, isSelected }) => {
     const color = chroma(data.color);
@@ -161,6 +161,23 @@ const Filters = () => {
               }),
               indicatorSeparator: () => null,
               placeholder: placeholderStyle
+            }}
+          />
+          <Select
+            placeholder="По цене"
+            options={priceOptions}
+            components={{ DropdownIndicator }}
+            onChange={(option) => dispatch(setPrice(option))}
+            styles={{
+              control: controlStyle,
+              menu: menuStyle,
+              option: optionStyle,
+              placeholder: placeholderStyle,
+              dropdownIndicator: (provided, state) => ({
+                ...provided,
+                transform: state.selectProps.menuIsOpen ? 'rotate(180deg)' : 'rotate(0deg)'
+              }),
+              indicatorSeparator: () => null
             }}
           />
         </div>
