@@ -10,7 +10,8 @@ const AccordionButton = () => {
     accordionSpan:
       'font-Raleway not-italic font-light text-white text-[18px] leading-[21px] mr-[9px]',
     accordionImg: 'accordion-img transition duration-500',
-    accordionItem: 'py-2.5 flex justify-center items-center border-b-[.25px] border-black w-full',
+    accordionItem:
+      'py-2.5 flex justify-center items-center border-b-[.25px] border-[#E0BEA2] w-full',
     accordionList:
       'w-full flex flex-col items-center max-h-0 transition-all duration-500  overflow-hidden',
     accordionLink:
