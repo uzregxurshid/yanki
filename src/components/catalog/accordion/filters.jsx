@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { useRef } from 'react';
-import { colourOptions, priceOptions, sizeOptions } from './docs/data';
+import { colourOptions, priceOptions, sizeOptions, sortByOptions } from './docs/data';
 import Select, { components } from 'react-select';
 import AccordionImg from '../../../assets/images/category/filterMore.svg';
 import FilterImg from '../../../assets/images/category/filtr.svg';
@@ -9,6 +9,7 @@ import { setSizeAction } from '../../../redux/reducers/setSize';
 import chroma from 'chroma-js';
 import { setColor } from '../../../redux/reducers/setColor';
 import { setPrice } from '../../../redux/reducers/setPrice';
+import { setOrder } from '../../../redux/reducers/setOrderBy';
 const Filters = () => {
   const colorOptionStyle = (styles, { data, isDisabled, isFocused, isSelected }) => {
     const color = chroma(data.color);
@@ -59,6 +60,24 @@ const Filters = () => {
     lineHeight: '19px',
     color: '#0C0C0C',
     borderBottom: state.isFocused ? '.25px solid #E0BEA2' : 'none',
+    ':hover': {
+      boxShadow: 'none',
+      borderBottom: state.isFocused ? '.25px solid #E0BEA2' : 'none'
+    }
+  });
+  const controlStyleLast = (provided, state) => ({
+    ...provided,
+    width: '100%',
+    border: '0',
+    borderRadius: '0',
+    boxShadow: 'none',
+    fontFamily: 'Raleway',
+    fontWeight: '300',
+    fontStyle: 'normal',
+    fontSize: '16px',
+    lineHeight: '19px',
+    color: '#0C0C0C',
+    borderBottom: state.isFocused ? '.25px solid #E0BEA2' : '.25px solid #252525',
     ':hover': {
       boxShadow: 'none',
       borderBottom: state.isFocused ? '.25px solid #E0BEA2' : 'none'
@@ -170,6 +189,23 @@ const Filters = () => {
             onChange={(option) => dispatch(setPrice(option))}
             styles={{
               control: controlStyle,
+              menu: menuStyle,
+              option: optionStyle,
+              placeholder: placeholderStyle,
+              dropdownIndicator: (provided, state) => ({
+                ...provided,
+                transform: state.selectProps.menuIsOpen ? 'rotate(180deg)' : 'rotate(0deg)'
+              }),
+              indicatorSeparator: () => null
+            }}
+          />
+          <Select
+            placeholder="Сортировать по"
+            options={sortByOptions}
+            components={{ DropdownIndicator }}
+            onChange={(option) => dispatch(setOrder(option))}
+            styles={{
+              control: controlStyleLast,
               menu: menuStyle,
               option: optionStyle,
               placeholder: placeholderStyle,
