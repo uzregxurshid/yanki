@@ -43,9 +43,13 @@ const Category = () => {
               </li>
             </ul>
           </div>
-          <div>
-            <AccordionButton />
-            <Filters />
+          <div className="md:flex">
+            <div>
+              <AccordionButton />
+            </div>
+            <div>
+              <Filters />
+            </div>
           </div>
         </div>
       </div>

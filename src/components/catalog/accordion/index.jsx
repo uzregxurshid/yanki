@@ -6,7 +6,7 @@ const AccordionButton = () => {
   const catAccordion = useRef();
   const style = {
     accordionButton:
-      'flex w-full h-10 mt-[15px] items-center justify-center bg-[#E0BEA2]  cursor-pointer transition duration-500 hover:drop-shadow-xl active:bg-[#CCA88A]  md:hidden',
+      'flex w-full md:w-[150px] md:mr-[30px] md:hidden h-10 mt-[15px] items-center justify-center bg-[#E0BEA2]  cursor-pointer transition duration-500 hover:drop-shadow-xl active:bg-[#CCA88A] ',
     accordionSpan:
       'font-Raleway not-italic font-light text-white text-[18px] leading-[21px] mr-[9px]',
     accordionImg: 'accordion-img transition duration-500',
