@@ -1,11 +1,14 @@
 /* eslint-disable no-unused-vars */
-import { useRef, useState } from 'react';
-
+import { useRef } from 'react';
 import { sizeOptions } from './docs/data';
-import Select from 'react-select';
+import Select, { components } from 'react-select';
 import AccordionImg from '../../../assets/images/category/filterMore.svg';
 import FilterImg from '../../../assets/images/category/filtr.svg';
+import { useDispatch } from 'react-redux';
+import { setSizeAction } from '../../../redux/reducers/setSize';
+
 const Filters = () => {
+  const dispatch = useDispatch();
   const controlStyle = (provided, state) => ({
     ...provided,
     width: '100%',
@@ -18,9 +21,10 @@ const Filters = () => {
     fontSize: '16px',
     lineHeight: '19px',
     color: '#0C0C0C',
-    borderBottom: state.isFocused ? '.25px solid #E0BEA2' : '.25px solid #E0BEA2',
+    borderBottom: state.isFocused ? '.25px solid #E0BEA2' : 'none',
     ':hover': {
-      borderBottom: '.25px solid #E0BEA2'
+      boxShadow: 'none',
+      borderBottom: state.isFocused ? '.25px solid #E0BEA2' : 'none'
     }
   });
   const menuStyle = (provided, state) => ({
@@ -50,8 +54,13 @@ const Filters = () => {
     backgroundColor: state.isSelected ? 'none' : 'none'
   });
   const catAccordion = useRef();
-  const [size, setSize] = useState(null);
-
+  const DropdownIndicator = (props) => {
+    return (
+      <components.DropdownIndicator {...props}>
+        <img src={AccordionImg} alt="accordion" />
+      </components.DropdownIndicator>
+    );
+  };
   const style = {
     accordionButton:
       'flex w-full h-6 mt-[15px] items-start justify-between px-2 cursor-pointer transition duration-500 hover:drop-shadow-xl  md:hidden border-b-[.25px] border-[#252525]',
@@ -69,8 +78,9 @@ const Filters = () => {
       <button
         className={style.accordionButton}
         type="button"
-        onClick={() => {
+        onClick={(e) => {
           catAccordion.current.classList.toggle('hidden');
+          e.target.classList.toggle('border-b-0');
           document.querySelector('.accordion-imgf').classList.toggle('rotate-180');
         }}>
         <div className={style.accordFilterWrap}>
@@ -84,45 +94,18 @@ const Filters = () => {
           <Select
             placeholder="Размер"
             options={sizeOptions}
-            onChange={(option) => setSize(option)}
+            components={{ DropdownIndicator }}
+            onChange={(option) => dispatch(setSizeAction(option))}
             styles={{
               control: controlStyle,
               menu: menuStyle,
               option: optionStyle,
-              placeholder: placeholderStyle
-            }}
-          />
-          <Select
-            placeholder="Размер"
-            options={sizeOptions}
-            onChange={(option) => setSize(option)}
-            styles={{
-              control: controlStyle,
-              menu: menuStyle,
-              option: optionStyle,
-              placeholder: placeholderStyle
-            }}
-          />
-          <Select
-            placeholder="Размер"
-            options={sizeOptions}
-            onChange={(option) => setSize(option)}
-            styles={{
-              control: controlStyle,
-              menu: menuStyle,
-              option: optionStyle,
-              placeholder: placeholderStyle
-            }}
-          />
-          <Select
-            placeholder="Размер"
-            options={sizeOptions}
-            onChange={(option) => setSize(option)}
-            styles={{
-              control: controlStyle,
-              menu: menuStyle,
-              option: optionStyle,
-              placeholder: placeholderStyle
+              placeholder: placeholderStyle,
+              dropdownIndicator: (provided, state) => ({
+                ...provided,
+                transform: state.selectProps.menuIsOpen ? 'rotate(180deg)' : 'rotate(0deg)'
+              }),
+              indicatorSeparator: () => null
             }}
           />
         </div>

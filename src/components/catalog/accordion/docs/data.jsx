@@ -23,3 +23,16 @@ export const sizeOptions = [
   { value: 'medium', label: 'M' },
   { value: 'large', label: 'L' }
 ];
+
+export const priceOptions = [
+  { value: 'fromlowprice', label: 'По возрастанию цены' },
+  { value: 'fromhighprice', label: 'По убыванию цены' }
+];
+
+export const sortByOptions = [
+  { value: 'new', label: 'Новинки' },
+  { value: 'popular', label: 'Популярные' },
+  { value: 'discount', label: 'Скидки' },
+  { value: 'price', label: 'По цене' },
+  { value: 'rating', label: 'По рейтингу' }
+];
