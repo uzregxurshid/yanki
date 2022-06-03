@@ -17,3 +17,4 @@ export const PriceReducer = (state = initialState, action) => {
 };
 
 export const setPrice = (price) => ({ type: SET_PRICE, payload: price });
+export const clearPrice = () => ({ type: SET_PRICE, payload: '' });

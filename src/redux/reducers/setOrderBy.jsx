@@ -17,3 +17,4 @@ export const OrderReducer = (state = initialState, action) => {
 };
 
 export const setOrder = (order) => ({ type: SET_ORDER, payload: order });
+export const clearOrder = () => ({ type: SET_ORDER, payload: '' });

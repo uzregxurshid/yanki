@@ -17,3 +17,4 @@ export const ColorReducer = (state = initialState, action) => {
 };
 
 export const setColor = (color) => ({ type: SET_COLOR, payload: color });
+export const clearColor = () => ({ type: SET_COLOR, payload: '' });

@@ -17,3 +17,4 @@ export const SizeReducer = (state = initialState, action) => {
 };
 
 export const setSizeAction = (size) => ({ type: SET_SIZE, payload: size });
+export const clearSizeAction = () => ({ type: SET_SIZE, payload: '' });
