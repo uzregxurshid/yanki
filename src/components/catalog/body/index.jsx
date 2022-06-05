@@ -43,7 +43,7 @@ const Category = () => {
               </li>
             </ul>
           </div>
-          <div className="md:flex">
+          <div className="md:flex md:mt-[34px] md:items-start">
             <div>
               <AccordionButton />
             </div>

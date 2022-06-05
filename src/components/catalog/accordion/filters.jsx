@@ -81,6 +81,11 @@ const Filters = () => {
     ':hover': {
       boxShadow: 'none',
       borderBottom: state.isFocused ? '.25px solid #E0BEA2' : 'none'
+    },
+    '@media only screen and (min-width: 768px)': {
+      ...provided['@media only screen and (min-width: 768px)'],
+      borderBottom: state.isFocused ? '.25px solid #E0BEA2' : 'none',
+      width: '100%'
     }
   });
   const menuStyle = (provided, state) => ({
@@ -119,13 +124,13 @@ const Filters = () => {
   };
   const style = {
     accordionButton:
-      'flex w-full h-6 mt-[15px] items-start justify-between px-2 cursor-pointer transition duration-500 hover:drop-shadow-xl border-b-[.25px] border-[#252525]',
+      'flex md:hidden w-full h-6 mt-[15px] items-start justify-between px-2 cursor-pointer transition duration-500 hover:drop-shadow-xl border-b-[.25px] border-[#252525]',
     accordFilterWrap: 'flex items-center',
     accordionSpan:
       'font-Raleway not-italic font-light text-[#252525] text-[16px] leading-[19px] mr-[9px]',
     accordionImg: 'accordion-imgf transition duration-500',
     accordionItem: 'py-2.5 border-b-[.25px] border-black w-full',
-    accordionList: 'w-full flex flex-col items-center hidden transition-all duration-500',
+    accordionList: 'w-full flex flex-col items-center hidden transition-all duration-500 md:flex',
     accordionLink:
       'font-Raleway font-light text-[#252525]  hover:animate-pulse hover:text-[#E0BEA2] transition duration-500 text-[16px] leading-[19px]'
   };
@@ -146,7 +151,7 @@ const Filters = () => {
         <img className={style.accordionImg} src={AccordionImg} alt="accordion" />
       </button>
       <form ref={catAccordion} className={style.accordionList}>
-        <div className="w-full">
+        <div className="w-full md:flex md:flex-row">
           <Select
             placeholder="Размер"
             options={sizeOptions}
