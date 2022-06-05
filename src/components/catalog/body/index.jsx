@@ -4,6 +4,8 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Filters from '../accordion/filters';
 import AccordionButton from '../accordion/index';
+import Model1 from '../../../assets/images/category/card/model1.png';
+import Card from '../card';
 const Category = () => {
   useEffect(() => {
     AOS.init({
@@ -47,8 +49,16 @@ const Category = () => {
             <div>
               <AccordionButton />
             </div>
-            <div>
+            <div className="md:flex md:flex-col">
               <Filters />
+              <div className="flex">
+                <Card
+                  image={Model1}
+                  navigate={'/catalog/model1'}
+                  onFavourite={() => {}}
+                  isNew={true}
+                />
+              </div>
             </div>
           </div>
         </div>
