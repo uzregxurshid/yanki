@@ -57,6 +57,7 @@ const Category = () => {
                   navigate={'/catalog/model1'}
                   onFavourite={() => {}}
                   isNew={true}
+                  sizes={['XXS', 'S', 'M', 'L', 'XL']}
                 />
               </div>
             </div>

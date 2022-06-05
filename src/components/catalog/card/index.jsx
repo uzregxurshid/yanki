@@ -76,7 +76,18 @@ const Price = styled('div')`
   text-align: center;
 `;
 
-const Card = ({ image, onFavourite, navigate, modelname, isNew, price }) => {
+const Item = styled('li')`
+  font-family: 'Raleway', Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: 300;
+  font-style: normal;
+  text-align: center;
+  color: rgba(37, 37, 37, 0.5);
+  margin-left: 5px;
+`;
+
+const Card = ({ image, onFavourite, navigate, modelname, isNew, price, sizes }) => {
   const navigator = useNavigate();
   return (
     <CardBody onClick={() => navigator(navigate)}>
@@ -90,6 +101,15 @@ const Card = ({ image, onFavourite, navigate, modelname, isNew, price }) => {
         {isNew && <IsNewText>new</IsNewText>}
       </div>
       <Price>{price || '2900 грн'}</Price>
+      {sizes && (
+        <ul className="mt-[5px] flex justify-center">
+          {sizes.map((size, index) => (
+            <Item key={index} className="first:ml-0">
+              {size}
+            </Item>
+          ))}
+        </ul>
+      )}
     </CardBody>
   );
 };
@@ -99,7 +119,8 @@ Card.propTypes = {
   navigate: propTypes.string,
   modelname: propTypes.string,
   isNew: propTypes.bool,
-  price: propTypes.string
+  price: propTypes.string,
+  sizes: propTypes.array
 };
 
 export default Card;
