@@ -15,7 +15,7 @@ const AccordionButton = () => {
     accordionMdItem:
       'py-2.5 hidden md:flex justify-center md:justify-start items-center border-b-[.25px] border-[#E0BEA2] w-full md:border-b-0',
     accordionList:
-      'w-full flex flex-col items-center max-h-0 transition-all duration-500  overflow-hidden md:max-h-max  md:w-[150px] md:mr-[30px]',
+      'w-full flex flex-col items-center max-h-0 transition-all duration-500  overflow-hidden md:max-h-max  md:w-[150px] md:mr-[30px] xl:mr-4',
     accordionLink:
       'font-Raleway font-light text-[#252525]  hover:animate-pulse hover:text-[#E0BEA2] transition duration-500 text-[16px] leading-[19px]'
   };

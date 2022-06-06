@@ -4,20 +4,58 @@ import React from 'react';
 import propTypes from 'prop-types';
 import AddFavoriteImg from '../../../assets/images/category/card/favourite.svg';
 const CardBody = styled('div')`
-  width: 165px;
+  width: calc(50% - 4px);
   display: flex;
   flex-direction: column;
-  cursor: pointer;
+  margin-top: 5px;
+  @media (min-width: 640px) {
+    margin-top: 30px;
+    width: 280px;
+  }
+  @media (min-width: 680px) {
+    width: 310px;
+  }
+  @media (min-width: 768px) {
+    width: 270px;
+  }
+  @media (min-width: 788px) {
+    width: 280px;
+  }
+  @media (min-width: 818px) {
+    width: 290px;
+  }
+  @media (min-width: 838px) {
+    width: 300px;
+  }
+  @media (min-width: 858px) {
+    width: 310px;
+  }
+  @media (min-width: 1024px) {
+    width: 265px;
+  }
+  @media (min-width: 1100px) {
+    width: 280px;
+  }
+  @media (min-width: 1140px) {
+    width: 295px;
+  }
+  @media (min-width: 1160px) {
+    width: 310px;
+  }
 `;
 
 const CardImage = styled('div')`
   width: 100%;
-  height: 230px;
+  height: calc(50vw + 43px);
+  display: block;
   background-image: url(${(props) => props.image});
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
+  @media (min-width: 640px) {
+    height: 360px;
+  }
 `;
 
 const AddFavorite = styled('button')`
@@ -41,6 +79,10 @@ const AddFavorite = styled('button')`
     box-shadow: inset 0px 3px 7px rgba(37, 37, 37, 0.15);
     background-color: #cca88a;
   }
+  @media (min-width: 640px) {
+    width: 40px;
+    height: 40px;
+  }
 `;
 
 const CardTitle = styled('div')`
@@ -52,6 +94,10 @@ const CardTitle = styled('div')`
   text-align: center;
   position: relative;
   color: #252525;
+  @media (min-width: 640px) {
+    font-size: 16px;
+    line-height: 19px;
+  }
 `;
 
 const IsNewText = styled('div')`
@@ -63,6 +109,11 @@ const IsNewText = styled('div')`
   font-weight: 300;
   text-align: center;
   margin-left: 5px;
+  @media (min-width: 640px) {
+    font-size: 16px;
+    line-height: 19px;
+    margin-left: 10px;
+  }
 `;
 
 const Price = styled('div')`
@@ -74,6 +125,10 @@ const Price = styled('div')`
   color: #252525;
   margin-top: 5px;
   text-align: center;
+  @media (min-width: 640px) {
+    font-size: 16px;
+    line-height: 19px;
+  }
 `;
 
 const Item = styled('li')`
@@ -87,11 +142,36 @@ const Item = styled('li')`
   margin-left: 5px;
 `;
 
-const Card = ({ image, onFavourite, navigate, modelname, isNew, price, sizes }) => {
+const Color = styled('li')`
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 5px;
+  background: ${(props) => props.color};
+  cursor: pointer;
+  ${(props) =>
+    props.color === '#ffffff' &&
+    `
+    border: .3px solid #252525;
+  `}
+`;
+
+const Card = ({
+  image,
+  onFavourite,
+  navigate,
+  modelname,
+  isNew,
+  price,
+  sizes,
+  colors,
+  className
+}) => {
   const navigator = useNavigate();
   return (
-    <CardBody onClick={() => navigator(navigate)}>
-      <CardImage image={image}>
+    <CardBody className={className}>
+      <CardImage image={image} onClick={() => navigator(navigate)}>
         <AddFavorite onClick={onFavourite}>
           <img src={AddFavoriteImg} alt="add to favorite" />
         </AddFavorite>
@@ -110,6 +190,13 @@ const Card = ({ image, onFavourite, navigate, modelname, isNew, price, sizes }) 
           ))}
         </ul>
       )}
+      {colors && (
+        <ul className="mt-[5px] flex justify-center">
+          {colors.map((color, index) => (
+            <Color key={index} color={color} className="first:ml-0" />
+          ))}
+        </ul>
+      )}
     </CardBody>
   );
 };
@@ -120,7 +207,9 @@ Card.propTypes = {
   modelname: propTypes.string,
   isNew: propTypes.bool,
   price: propTypes.string,
-  sizes: propTypes.array
+  sizes: propTypes.array,
+  colors: propTypes.array,
+  className: propTypes.string
 };
 
 export default Card;
