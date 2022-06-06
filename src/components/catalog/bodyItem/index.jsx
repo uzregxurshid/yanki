@@ -2,14 +2,12 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Filters from '../accordion/filters';
-import AccordionButton from '../accordion/index';
 import Model1 from '../../../assets/images/category/card/model1.png';
 import Model2 from '../../../assets/images/category/card/model2.png';
 import Model3 from '../../../assets/images/category/card/model3.png';
 import Model4 from '../../../assets/images/category/card/model4.png';
 import Card from '../card';
-const Category = () => {
+const BodyItem = () => {
   useEffect(() => {
     AOS.init({
       duration: 1000
@@ -49,11 +47,7 @@ const Category = () => {
             </ul>
           </div>
           <div className="md:flex md:mt-[34px] md:items-start">
-            <div>
-              <AccordionButton />
-            </div>
             <div className="md:flex md:flex-col md:w-full">
-              <Filters />
               <div className="flex mt-[15px] justify-between w-full flex-wrap sm:grid sm:grid-cols-2 sm:justify-center md:w-full lg:grid-cols-3">
                 <Card
                   image={Model1}
@@ -169,4 +163,4 @@ const Category = () => {
   );
 };
 
-export default Category;
+export default BodyItem;

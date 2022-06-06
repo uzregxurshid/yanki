@@ -2,7 +2,7 @@ import Category from '../../components/catalog/body';
 import Header from '../../components/catalog/header/index';
 import Footer from '../../components/home/footer/index';
 
-const Catalog = () => {
+const Categories = () => {
   return (
     <>
       <Header />
@@ -12,4 +12,4 @@ const Catalog = () => {
   );
 };
 
-export default Catalog;
+export default Categories;
