@@ -19,29 +19,7 @@ const CardBody = styled('div')`
     width: 270px;
   }
   @media (min-width: 788px) {
-    width: 280px;
-  }
-  @media (min-width: 818px) {
-    width: 290px;
-  }
-  @media (min-width: 838px) {
-    width: 300px;
-  }
-  @media (min-width: 858px) {
-    width: 310px;
-  }
-  @media (min-width: 1024px) {
-    width: 265px;
-  }
-  @media (min-width: 1100px) {
-    width: 280px;
-  }
-  @media (min-width: 1140px) {
     width: 295px;
-  }
-  @media (min-width: 1160px) {
-    width: 310px;
-  }
 `;
 
 const CardImage = styled('div')`
