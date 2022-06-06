@@ -2,8 +2,7 @@ import styled from '@emotion/styled';
 import React from 'react';
 import propTypes from 'prop-types';
 import AddFavoriteImg from '../../../assets/images/category/card/favourite.svg';
-import AddToCartImg from '../../../assets/images/category/card/add_to_card.svg';
-import BuyNowImg from '../../../assets/images/category/card/buyNow.svg';
+import { useNavigate } from 'react-router-dom';
 const CardBody = styled('div')`
   width: calc(50% - 4px);
   display: flex;
@@ -156,66 +155,28 @@ const Color = styled('li')`
     border: .3px solid #252525;
   `}
 `;
-
-const BuySection = styled('div')`
-  width: 100%;
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(6px);
-  height: 100%;
-  left: 0;
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.5s ease-in-out;
-  top: ${(props) => (props.isOpen ? '0' : '-100%')};
-`;
-
 const Card = ({
   image,
   onFavourite,
-  buyNow,
   modelname,
   isNew,
   price,
   sizes,
   colors,
   className,
-  addToCart
+  navigate
 }) => {
-  // eslint-disable-next-line no-unused-vars
-  const [open, setOpen] = React.useState(false);
+  const navigator = useNavigate();
   return (
     <CardBody className={className}>
       <CardImage
         image={image}
         onClick={(e) => {
           if (e.target.tagName !== 'BUTTON') {
-            setOpen(!open);
+            navigator(navigate);
           }
         }}>
         <AddFavorite onClick={onFavourite}></AddFavorite>
-        <BuySection isOpen={open}>
-          <div className="flex items-center">
-            <button
-              className="w-8 h-8  flex items-center justify-center bg-[#E0BEA2] rounded-full lg:w-12 lg:h-12 hover:drop-shadow-[0_5px_7px_rgba(37,37,37,0.15)] active:bg-[#CCA88A] transition duration-500 active:shadow-[inset_3px_7px_rgba(37,37,37,0.15)]"
-              type="button"
-              aria-label="Buy Now"
-              onClick={buyNow}
-              aria-hidden="true">
-              <img src={BuyNowImg} alt="add to cart" width={20} />
-            </button>
-            <button
-              className="w-8 h-8 ml-5 flex items-center justify-center bg-[#E0BEA2] rounded-full lg:w-12 lg:h-12 hover:drop-shadow-[0_5px_7px_rgba(37,37,37,0.15)] active:bg-[#CCA88A] transition duration-500 active:shadow-[inset_3px_7px_rgba(37,37,37,0.15)]"
-              type="button"
-              aria-label="add to cart"
-              onClick={addToCart}
-              aria-hidden="true">
-              <img src={AddToCartImg} alt="add to cart" width={20} />
-            </button>
-          </div>
-        </BuySection>
       </CardImage>
       <div className="flex items-center justify-center mt-2.5">
         <CardTitle>{modelname || 'Modelname'}</CardTitle>
