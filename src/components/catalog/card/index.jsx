@@ -20,6 +20,22 @@ const CardBody = styled('div')`
   }
   @media (min-width: 788px) {
     width: 295px;
+  }
+  @media (min-width: 1024px) {
+    width: 260px;
+  }
+  @media (min-width: 1080px) {
+    width: 280px;
+  }
+  @media (min-width: 1110px) {
+    width: 290px;
+  }
+  @media (min-width: 1140px) {
+    width: 300px;
+  }
+  @media (min-width: 1170px) {
+    width: 310px;
+  }
 `;
 
 const CardImage = styled('div')`
