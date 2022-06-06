@@ -68,6 +68,10 @@ const AddFavorite = styled('button')`
   align-items: center;
   border-bottom-left-radius: 50%;
   transition: all 0.5s ease-in-out;
+  background-image: url(${AddFavoriteImg});
+  background-repeat: no-repeat;
+  background-size: 15px 15px;
+  background-position: center;
   &:hover {
     filter: drop-shadow(0px 5px 7px rgba(37, 37, 37, 0.15));
   }
@@ -180,17 +184,22 @@ const Card = ({
   className,
   addToCart
 }) => {
+  // eslint-disable-next-line no-unused-vars
   const [open, setOpen] = React.useState(false);
   return (
     <CardBody className={className}>
-      <CardImage image={image} onClick={() => setOpen(!open)}>
-        <AddFavorite onClick={onFavourite}>
-          <img src={AddFavoriteImg} alt="add to favorite" />
-        </AddFavorite>
+      <CardImage
+        image={image}
+        onClick={(e) => {
+          if (e.target.tagName !== 'BUTTON') {
+            setOpen(!open);
+          }
+        }}>
+        <AddFavorite onClick={onFavourite}></AddFavorite>
         <BuySection isOpen={open}>
           <div className="flex items-center">
             <button
-              className="w-8 h-8  flex items-center justify-center bg-[#E0BEA2] rounded-full lg:w-12 lg:h-12 hover:drop-shadow-[0_5px_7px_rgba(37,37,37,0.15)]"
+              className="w-8 h-8  flex items-center justify-center bg-[#E0BEA2] rounded-full lg:w-12 lg:h-12 hover:drop-shadow-[0_5px_7px_rgba(37,37,37,0.15)] active:bg-[#CCA88A] transition duration-500 active:shadow-[inset_3px_7px_rgba(37,37,37,0.15)]"
               type="button"
               aria-label="Buy Now"
               onClick={buyNow}
@@ -198,7 +207,7 @@ const Card = ({
               <img src={BuyNowImg} alt="add to cart" width={20} />
             </button>
             <button
-              className="w-8 h-8 ml-5 flex items-center justify-center bg-[#E0BEA2] rounded-full lg:w-12 lg:h-12 hover:drop-shadow-[0_5px_7px_rgba(37,37,37,0.15)]"
+              className="w-8 h-8 ml-5 flex items-center justify-center bg-[#E0BEA2] rounded-full lg:w-12 lg:h-12 hover:drop-shadow-[0_5px_7px_rgba(37,37,37,0.15)] active:bg-[#CCA88A] transition duration-500 active:shadow-[inset_3px_7px_rgba(37,37,37,0.15)]"
               type="button"
               aria-label="add to cart"
               onClick={addToCart}
